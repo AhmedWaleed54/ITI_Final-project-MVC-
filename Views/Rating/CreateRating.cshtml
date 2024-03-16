@@ -1,0 +1,62 @@
+﻿@model Rating
+
+<h1 class="alert alert-success text-center">Create Rating</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-controller="Rating" asp-action="AddNew" >
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <label asp-for="ViewerName"></label>
+            <input type="text" asp-for="ViewerName" class="form-control" />
+            <span asp-validation-for="ViewerName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="MovieId"></label>
+            <select asp-for="MovieId" asp-items="@(new SelectList(ViewBag.AllMovies,"MovieId","MovieTitle"))" class="form-control">
+                <option selected disabled>Select..</option>
+            </select>
+            <span asp-validation-for="MovieId" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="RatingDescription"></label>
+            <input type="text" asp-for="RatingDescription" class="form-control" />
+            <span asp-validation-for="RatingDescription" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="RatingCount"></label>
+            <input type="number" asp-for="RatingCount" class="form-control" />
+            <span asp-validation-for="RatingCount" class="text-danger"></span>
+        </div>
+        @*<div>
+            <label asp-for="MovieUrl"></label>
+            <input type="url" asp-for="MovieUrl" class="form-control" />
+            <span asp-validation-for="MovieUrl" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ImagePath"></label>
+            <input type="file" name="imageFormFile" id="imageFormFile" accept=".png,.jpg" class="form-control" onchange="SetImgSrc()" />
+        </div>*@
+        <button type="submit" class="btn btn-primary mt-2">Add</button>
+    </form>
+    @*<img src="" id="deptImage" class="col-4 card" style="object-fit:contain" />*@
+</div>
+
+@*<a asp-controller="Employees" asp-action="GetIndex">Back to List</a>*@
+
+@*@section Scripts{
+    <script>
+        function SetImgSrc() {
+
+            document.getElementById("deptImage").src = window.URL.createObjectURL(document.getElementById("imageFormFile").files[0]);
+        }
+    </script>
+}*@
+
+
+
+
+
+
+
+

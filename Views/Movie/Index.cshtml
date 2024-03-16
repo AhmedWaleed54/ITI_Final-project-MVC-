@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Movie>
+
+<h1 class="alert alert-danger text-center">Movie Index.</h1>
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m=>m.MovieTitle)</th>
+                <th>@Html.DisplayNameFor(m=>m.MovieType)</th>
+                <th>@Html.DisplayNameFor(m=>m.ImagePath)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var mov in Model)
+            {
+                <tr>
+                    <td>@mov.MovieTitle</td>
+                    <td>@mov.MovieType</td>
+                    <td><img  style="width:80px; height:80px; border-radius :20px" src="@mov.ImagePath" /></td>
+                    <td>
+                        <a asp-controller="Movie" asp-action="GetDetailsView" asp-route-id="@mov.MovieId" class="btn btn-outline-warning"><i class="bi bi-list-ul"></i></a>
+                        <a asp-controller="Movie" asp-action="GetEditView" asp-route-id="@mov.MovieId" class="btn btn-outline-primary"> <i class="bi bi-pencil-square"></i></a>
+                        <a asp-controller="Movie" asp-action="GetDeleteView" asp-route-id="@mov.MovieId" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 class="alert alert-danger text-center">There is no Movie to display.</h1>
+}
+
+<div class="d-flex justify-content-between my-3">
+
+
+    <div> 
+        <a asp-controller="Movie" asp-action="GetFormToAdd" type="button" class="btn btn-primary" style="border-radius :20px">Add Movie</a>
+     </div>
+
+    <div><form method="get" asp-controller="Movie" asp-action="GetIndexView">
+        <div class="input-group">
+            <input type="text" name="search" value="@ViewBag.Search" />
+            <button type="submit" class="btn btn-secondary input-group-append"><i class="bi bi-search"></i></button>
+        </div>
+    </form>
+    </div>
+
+   
+  
+
+</div>
+
+<hr />
+@if (Model.Count() > 0)
+{
+
+    <div class="row">
+        @foreach (var mov in Model)
+        {
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card border-success bg-transparent mb-2  text-dark text-center " style="width:16rem ; display:inline-block ;    box-shadow: #494d51 0px 3px 8px; border-radius:20px">
+                    <div class="card-header border-success bg-Secondary text-white" style="border-top-left-radius: inherit;
+                                                                                                          border-top-right-radius: inherit;">
+                        @mov.MovieTitle
+                    </div>
+                    <div class="card-body border-success bg-transparent p-0 ">
+                        <img style="width:100%; height:231px" src="@mov.ImagePath" />
+                    </div>
+                    <div class="card-footer border-success bg-Secondary text-white" style="border-bottom-left-radius: inherit;
+                                                                                                          border-bottom-right-radius: inherit;">
+                        @mov.MovieType
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <h1 class="alert alert-danger">There is no Movie to display.</h1>
+}
+

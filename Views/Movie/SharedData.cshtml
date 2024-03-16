@@ -1,0 +1,43 @@
+﻿@{
+    Movie movie = (Movie)ViewBag.CurrentData;
+}
+
+<div class="row">
+    <dl class="row col-6">
+        @* <dt class="col-2">@Html.DisplayNameFor(d=>movie.MovieId) </dt>
+        <dd class="col-10">@Html.DisplayFor(d=>movie.MovieId)</dd>
+        <dd class="col-10">@Model.MovieId</dd> *@
+
+        <dt class="col-2">@Html.DisplayNameFor(d=>movie.MovieTitle)</dt>
+        <dd class="col-10">@Html.DisplayFor(d=>movie.MovieTitle)</dd>
+       @* <dd class="col-10">@Model.MovieTitle</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(d=>movie.MovieDescription)</dt>
+        <dd class="col-10">@Html.DisplayFor(d=>movie.MovieDescription) </dd>
+        @*<dd class="col-10">@Model.MovieDescription</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(d=>movie.MovieType)</dt>
+        <dd class="col-10">@Html.DisplayFor(d=>movie.MovieType)  </dd>
+         @*<dd class="col-10">@Model.MovieType</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(d=>movie.MovieUrl)</dt>
+        @*<dd class="col-10">@Html.DisplayFor(d=>movie.MovieUrl)  </dd>*@
+        <dd class="col-10"><a href=">@Html.DisplayFor(d=>movie.MovieUrl)l">>@Html.DisplayFor(d=>movie.MovieUrl)</a></dd>
+        </dl>
+          <img src="@Model.ImagePath" class="card col-6" style="object-fit:contain" />        
+       
+
+</div>
+
+<ul class="col-4 list-group">
+    <li class="list-group-item active">Viewers</li>
+    @foreach (var rat in Model.rating)
+    {
+        <a asp-controller="Rating" asp-action="GetDetailsView" asp-route-id="@rat.RatingId">
+        <li class="list-group-item list-group-item-action">
+                @rat.ViewerName (@rat.RatingCount)
+        </li>
+        </a>
+
+    }
+</ul>

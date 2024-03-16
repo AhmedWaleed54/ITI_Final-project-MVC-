@@ -1,0 +1,33 @@
+﻿
+@{
+    Rating rating = (Rating)ViewBag.CurrentData;
+}
+
+
+
+
+<dl class="row">
+   @*  <dt class="col-2">@Html.DisplayNameFor(r=>rating.RatingId)</dt>
+   <dd class="col-10">@Html.DisplayFor(r=>rating.RatingId)</dd>
+     <dd class="col-10">@Model.RatingId</dd> *@
+
+    <dt class="col-2">@Html.DisplayNameFor(r=>rating.ViewerName)</dt>
+@*    <dd class="col-10">@Html.DisplayFor(r=>rating.ViewerName)</dd>*@
+     <dd class="col-10">@Model.ViewerName</dd>
+
+    <dt class="col-2">@Html.DisplayNameFor(r=>rating.RatingCount)</dt>
+    @*<dd class="col-10">@Html.DisplayFor(r=>rating.RatingCount)</dd>*@
+     <dd class="col-10">@Model.RatingCount</dd>
+
+    <dt class="col-2">@Html.DisplayNameFor(r=>rating.RatingDescription)</dt>
+   @* <dd class="col-10">@Html.DisplayFor(r=>rating.RatingDescription)</dd>*@
+    <dd class="col-10">@Model.RatingDescription</dd>
+
+    
+
+    <dt class="col-2">Movie Name </dt>
+    <dd class="col-10">@Model.movie.MovieTitle </dd>
+
+</dl>
+
+

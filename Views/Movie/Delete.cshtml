@@ -1,0 +1,10 @@
+﻿@model Movie;
+
+<h1 class="alert alert-warning">Are you sure you want to delete this?</h1>
+
+<partial name="SharedData" />
+<form method="post" asp-controller="Movie" asp-action="DeleteCurrent" >
+    <input type="hidden" asp-for="MovieId"  />
+    <button class="btn btn-danger" type="submit">Delete</button>
+</form>
+<a asp-controller="Movie" asp-action="GetIndexView">Back to List</a>

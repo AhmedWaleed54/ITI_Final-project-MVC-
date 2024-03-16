@@ -1,0 +1,5 @@
+﻿@model Rating
+
+<h1 class="alert alert-warning">@Model.movie.MovieTitle Rating Details</h1>
+<partial name="_RatingSharedData"></partial>
+<a asp-controller="Rating" asp-action="GetIndexView">Back to List</a>

@@ -1,0 +1,9 @@
+﻿@model Rating
+<h1 class="alert alert-danger">Are you sure to delete this?</h1>
+
+<partial name="_RatingSharedData"></partial>
+<form method="post" asp-controller="Rating" asp-action="DeleteCurrent">
+    <input type="hidden" asp-for="RatingId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<a asp-controller="Rating" asp-action="GetIndexView">Back to List</a>

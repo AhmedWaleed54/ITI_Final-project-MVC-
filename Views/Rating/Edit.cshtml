@@ -1,0 +1,31 @@
+﻿@model Rating
+
+<h1 class="alert alert-success text-center">Edit Rating</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-action="EditCurrent" asp-controller="Rating" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="MovieId" />
+        <div>
+            <label>Your name</label>
+            <input type="text" asp-for="ViewerName" class="form-control" />
+            <span asp-validation-for="ViewerName" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Your Rating</label>
+            <input type="number" asp-for="RatingCount" class="form-control" />
+            <span asp-validation-for="RatingCount" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" asp-for="RatingDescription" class="form-control" />
+            <span asp-validation-for="RatingDescription" class="text-danger"></span>
+        </div>
+        
+       
+        <button type="submit" class="btn btn-primary mt-2">Edit</button>
+    </form>
+ 
+</div>
+<a asp-controller="Rating" asp-action="GetIndexView">Back to List</a>
+

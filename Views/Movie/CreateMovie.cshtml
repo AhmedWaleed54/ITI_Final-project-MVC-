@@ -1,0 +1,55 @@
+﻿@model Movie
+
+<h1 class="alert alert-success text-center">Create Movie</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-controller="Movie" asp-action="AddNew" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <label asp-for="MovieTitle"></label>
+            <input type="text" asp-for="MovieTitle" class="form-control" />
+            <span asp-validation-for="MovieTitle" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="MovieDescription"></label>
+            <input type="text" asp-for="MovieDescription" class="form-control" />
+            <span asp-validation-for="MovieDescription" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="MovieType"></label>
+            <input type="text" asp-for="MovieType" class="form-control" />
+            <span asp-validation-for="MovieType" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="MovieUrl"></label>
+            <input type="url" asp-for="MovieUrl" class="form-control" />
+            <span asp-validation-for="MovieUrl" class="text-danger"></span>
+        </div>
+        
+        <div>
+            <label asp-for="ImagePath"></label>
+            <input type="file" name="imageFormFile" id="imageFormFile" accept=".png,.jpg" class="form-control" onchange="SetImgSrc()" />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Add</button>
+    </form>
+    <img src="" id="deptImage" class="col-4 card" style="object-fit:contain" />
+</div>
+
+@*<a asp-controller="Employees" asp-action="GetIndex">Back to List</a>*@
+
+@section Scripts{
+    <script>
+        function SetImgSrc() {
+
+            document.getElementById("deptImage").src = window.URL.createObjectURL(document.getElementById("imageFormFile").files[0]);
+        }
+    </script>
+}
+
+
+
+
+
+
+
+
